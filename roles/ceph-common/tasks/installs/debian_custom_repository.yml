@@ -3,5 +3,4 @@
   apt_repository:
     repo: "deb {{ ceph_custom_repo }} {{ ansible_distribution_release }} main"
     state: present
-    update_cache: no
-  notify: update apt cache if a repo was added
+    update_cache: yes
