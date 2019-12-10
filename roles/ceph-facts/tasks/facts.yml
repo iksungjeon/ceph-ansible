@@ -116,7 +116,8 @@
   - name: generate cluster fsid
     command: "{{ discovered_interpreter_python }} -c 'import uuid; print(str(uuid.uuid4()))'"
     register: cluster_uuid
-    delegate_to: "{{ groups[mon_group_name][0] }}"
+    delegate_to: localhost
+    become: false
     run_once: true
 
   - name: set_fact fsid
